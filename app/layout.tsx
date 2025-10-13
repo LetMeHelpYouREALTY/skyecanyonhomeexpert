@@ -1,65 +1,33 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
-import { StreamingProvider } from '@/contexts/streaming-context'
-import { SWRProvider } from '@/components/providers/swr-provider'
-import { SessionProvider } from '@/components/providers/session-provider'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/Footer'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-})
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'v0 Clone',
-  description:
-    'A clone of v0.dev built with the v0 SDK - Generate and preview React components with AI',
+  title: 'Skye Canyon Living - Homeowner Resource Hub | Nevada Community Guide',
+  description: 'Your complete guide to living in Skye Canyon Nevada. HOA rules, community events, local contractors, restaurants, and resident resources for Skye Canyon homeowners.',
+  keywords: 'living in Skye Canyon Nevada, Skye Canyon HOA rules explained, best contractors Skye Canyon, things to do near Skye Canyon, Skye Canyon community events calendar',
+  openGraph: {
+    title: 'Skye Canyon Living - Homeowner Resource Hub',
+    description: 'Your complete guide to living in Skye Canyon Nevada',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                  document.documentElement.classList.add('dark');
-                } else {
-                  document.documentElement.classList.remove('dark');
-                }
-                
-                // Listen for changes in system preference
-                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-                  if (e.matches) {
-                    document.documentElement.classList.add('dark');
-                  } else {
-                    document.documentElement.classList.remove('dark');
-                  }
-                });
-              })();
-            `,
-          }}
-        />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <SessionProvider>
-          <SWRProvider>
-            <StreamingProvider>{children}</StreamingProvider>
-          </SWRProvider>
-        </SessionProvider>
+    <html lang="en">
+      <body className={inter.className}>
+        <Navigation />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   )
