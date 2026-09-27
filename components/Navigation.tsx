@@ -12,6 +12,7 @@ export default function Navigation() {
     { name: 'Skye Canyon Community', href: '/community', icon: MapPin },
     { name: 'Homeowner Essentials', href: '/homeowner-essentials', icon: Home },
     { name: 'Community Living', href: '/community-living', icon: Calendar },
+    { name: 'Nearby Amenities', href: '/nearby-amenities', icon: MapPin },
     { name: 'Resident Resources', href: '/resident-resources', icon: Wrench },
     { name: 'Events Calendar', href: '/events', icon: Calendar },
   ]

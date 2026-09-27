@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Home, Calendar, Wrench, Users, MapPin, Sparkles, Award, Heart } from 'lucide-react'
 import type { Metadata } from 'next'
+import WhatsNearbySection from '@/components/amenities/WhatsNearbySection'
 
 export const metadata: Metadata = {
   title: 'Living in Skye Canyon Nevada - Homeowner Resource Hub & Community Guide',
@@ -181,6 +182,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <WhatsNearbySection defaultCategory="grocery" compact />
 
       {/* Why Choose Section */}
       <section className="py-16">

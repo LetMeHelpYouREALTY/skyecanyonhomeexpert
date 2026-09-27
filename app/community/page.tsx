@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { MapPin, Phone, Home, Dumbbell, Trees, Store, School, Users, Calendar, Award, Mountain, Bike, Coffee, Heart, Star, Building2 } from 'lucide-react'
 import type { Metadata } from 'next'
+import WhatsNearbySection from '@/components/amenities/WhatsNearbySection'
 
 export const metadata: Metadata = {
   title: "Las Vegas' Premier Master-Planned Community - Skye Canyon Nevada",
@@ -329,6 +330,12 @@ export default function CommunityPage() {
           </div>
         </div>
       </section>
+
+      <WhatsNearbySection
+        title="What's Near Skye Canyon"
+        description="Northwest Las Vegas dining, grocery, healthcare, and recreation within easy reach of Skye Canyon Park."
+        defaultCategory="restaurants"
+      />
 
       {/* Location Section */}
       <section id="visit" className="py-20 bg-white">
