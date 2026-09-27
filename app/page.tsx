@@ -1,10 +1,20 @@
 import Link from 'next/link'
 import { Home, Calendar, Wrench, Users, MapPin, Sparkles, Award, Heart } from 'lucide-react'
 import type { Metadata } from 'next'
+import HomeJsonLd from '@/components/HomeJsonLd'
 
 export const metadata: Metadata = {
-  title: 'Living in Skye Canyon Nevada - Homeowner Resource Hub & Community Guide',
-  description: 'Complete guide to living in Skye Canyon Nevada: HOA rules explained, community events calendar, best contractors, local amenities, and essential resources for Skye Canyon homeowners.',
+  title: 'Living in Skye Canyon | Homeowner Hub',
+  description:
+    'Skye Canyon homeowner hub: HOA guides, events, contractors, amenities, and northwest Las Vegas living tips. Questions? Dr. Jan Duffy — 702-222-1964.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Living in Skye Canyon | Homeowner Hub',
+    description:
+      'Guides, community life, and resident resources for Skye Canyon homeowners in northwest Las Vegas.',
+  },
 }
 
 export default function HomePage() {
@@ -71,6 +81,7 @@ export default function HomePage() {
 
   return (
     <>
+      <HomeJsonLd />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-skye-navy via-blue-800 to-skye-blue text-white py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10">

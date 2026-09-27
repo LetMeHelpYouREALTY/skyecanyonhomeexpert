@@ -4,17 +4,33 @@ import Script from 'next/script'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import { SITE_URL } from '@/lib/site'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Skye Canyon Living - Homeowner Resource Hub | Nevada Community Guide',
-  description: 'Your complete guide to living in Skye Canyon Nevada. HOA rules, community events, local contractors, restaurants, and resident resources for Skye Canyon homeowners.',
-  keywords: 'living in Skye Canyon Nevada, Skye Canyon HOA rules explained, best contractors Skye Canyon, things to do near Skye Canyon, Skye Canyon community events calendar',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'Skye Canyon Home Expert | Las Vegas Living',
+    template: '%s | Skye Canyon Home Expert',
+  },
+  description:
+    'Skye Canyon homeowner hub: HOA guides, community life, and resident resources for northwest Las Vegas. Dr. Jan Duffy, REALTOR — 702-222-1964.',
+  keywords:
+    'living in Skye Canyon Nevada, Skye Canyon HOA rules explained, best contractors Skye Canyon, things to do near Skye Canyon, Skye Canyon community events calendar',
   openGraph: {
-    title: 'Skye Canyon Living - Homeowner Resource Hub',
-    description: 'Your complete guide to living in Skye Canyon Nevada',
+    title: 'Skye Canyon Home Expert | Las Vegas Living',
+    description:
+      'Homeowner guides, community living tips, and resident resources for Skye Canyon in northwest Las Vegas.',
     type: 'website',
+    siteName: 'Skye Canyon Home Expert',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Skye Canyon Home Expert | Las Vegas Living',
+    description:
+      'Homeowner guides and resident resources for Skye Canyon, northwest Las Vegas.',
   },
 }
 
