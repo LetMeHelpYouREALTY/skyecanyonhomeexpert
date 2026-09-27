@@ -17,7 +17,7 @@ export const NEARBY_AMENITIES_FAQ: FaqItem[] = [
   {
     question: 'Are there hospitals near Skye Canyon?',
     answer:
-      'Centennial Hills Hospital (6900 N Hualapai Way, Las Vegas) serves the northwest valley and is a commonly used acute-care option for Skye Canyon residents.',
+      'Centennial Hills Hospital Medical Center (6900 N Durango Drive, Las Vegas) serves the northwest valley and is a commonly used acute-care option for Skye Canyon residents.',
   },
   {
     question: 'Where do Skye Canyon residents dine close to home?',
@@ -25,9 +25,9 @@ export const NEARBY_AMENITIES_FAQ: FaqItem[] = [
       'Skye Canyon Marketplace includes multiple restaurants and cafes; additional options along Durango Drive and Centennial Hills include spots such as Mimi\'s Cafe and Market Grille Cafe in the 89149 area.',
   },
   {
-    question: 'What schools serve Skye Canyon families?',
+    question: 'Which CCSD schools are assigned to Skye Canyon addresses?',
     answer:
-      'Clark County School District schools referenced for this area include William & Mary Scherbenbach Elementary and Arbor View High School—confirm attendance zones with CCSD for your exact address.',
+      'School assignments depend on your exact lot within Skye Canyon. CCSD schools often discussed for northwest Las Vegas include William and Mary Scherkenbach Elementary and Arbor View High School—verify your zoned schools with the CCSD Zoning Search for your address.',
   },
   {
     question: 'How long does it take to reach Harry Reid International Airport from Skye Canyon?',

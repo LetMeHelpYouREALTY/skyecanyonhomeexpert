@@ -10,21 +10,21 @@ import {
   getCategoryById,
 } from '@/lib/amenities/categories'
 import {
-  CURATED_NEARBY_PLACES,
   directionsUrlForPlace,
   formatPlaceAddress,
   placesForCategory,
   type CuratedPlace,
 } from '@/lib/amenities/places'
+import { searchCategoryNearSkyeCanyon } from '@/lib/amenities/search-category'
+import { loadGoogleMaps, mapsAuthFailed } from '@/lib/google-maps-loader'
 
 const MAP_HEIGHT_CLASS = 'h-[min(480px,70vh)] min-h-[360px]'
-const SEARCH_RADIUS_M = 8000
+const LIST_MIN_HEIGHT_CLASS = 'min-h-[120px]'
 
 type MapPlace = {
   id: string
   name: string
   address: string
-  rating?: number
   lat: number
   lng: number
   directionsUrl: string
@@ -36,25 +36,33 @@ type AmenityMapProps = {
   compact?: boolean
 }
 
-function escapeHtml(text: string): string {
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-}
+function buildInfoWindowContent(place: MapPlace): HTMLElement {
+  const root = document.createElement('div')
+  root.style.maxWidth = '240px'
+  root.style.padding = '4px 0'
 
-function infoWindowHtml(place: MapPlace): string {
-  const ratingLine =
-    place.rating != null
-      ? `<p style="margin:4px 0;font-size:14px;">Rating: ${place.rating.toFixed(1)}</p>`
-      : ''
-  return `<div style="max-width:240px;padding:4px 0;">
-    <strong style="font-size:15px;">${escapeHtml(place.name)}</strong>
-    ${ratingLine}
-    <p style="margin:6px 0 8px;font-size:13px;line-height:1.4;">${escapeHtml(place.address)}</p>
-    <a href="${place.directionsUrl}" target="_blank" rel="noopener noreferrer" style="color:#0ea5e9;font-weight:600;">Directions</a>
-  </div>`
+  const title = document.createElement('strong')
+  title.style.fontSize = '15px'
+  title.textContent = place.name
+  root.appendChild(title)
+
+  const address = document.createElement('p')
+  address.style.margin = '6px 0 8px'
+  address.style.fontSize = '13px'
+  address.style.lineHeight = '1.4'
+  address.textContent = place.address
+  root.appendChild(address)
+
+  const link = document.createElement('a')
+  link.href = place.directionsUrl
+  link.target = '_blank'
+  link.rel = 'noopener noreferrer'
+  link.style.color = '#0ea5e9'
+  link.style.fontWeight = '600'
+  link.textContent = 'Directions'
+  root.appendChild(link)
+
+  return root
 }
 
 function curatedToMapPlace(place: CuratedPlace, index: number): MapPlace | null {
@@ -71,32 +79,25 @@ function curatedToMapPlace(place: CuratedPlace, index: number): MapPlace | null 
   }
 }
 
-function loadGoogleMapsScript(apiKey: string): Promise<void> {
-  if (typeof window === 'undefined') {
-    return Promise.reject(new Error('No window'))
+function placeFromGooglePlace(p: google.maps.places.Place, index: number): MapPlace | null {
+  if (!p.location) return null
+  const { lat, lng } = p.location.toJSON()
+  const displayName = p.displayName
+  const name =
+    typeof displayName === 'string'
+      ? displayName
+      : displayName && typeof displayName === 'object' && 'text' in displayName
+        ? String((displayName as { text?: string }).text ?? 'Place')
+        : 'Place'
+  return {
+    id: `place-${index}`,
+    name,
+    address: p.formattedAddress ?? 'Las Vegas, NV',
+    lat,
+    lng,
+    directionsUrl:
+      p.googleMapsURI ?? `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`,
   }
-  if (typeof window.google !== 'undefined' && window.google.maps) {
-    return Promise.resolve()
-  }
-
-  const existing = document.querySelector<HTMLScriptElement>('script[data-amenity-map-loader]')
-  if (existing) {
-    return new Promise((resolve, reject) => {
-      existing.addEventListener('load', () => resolve())
-      existing.addEventListener('error', () => reject(new Error('Maps script failed')))
-    })
-  }
-
-  return new Promise((resolve, reject) => {
-    const script = document.createElement('script')
-    script.dataset.amenityMapLoader = 'true'
-    script.async = true
-    script.defer = true
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(apiKey)}&libraries=places,marker&loading=async`
-    script.onload = () => resolve()
-    script.onerror = () => reject(new Error('Failed to load Google Maps'))
-    document.head.appendChild(script)
-  })
 }
 
 export default function AmenityMap({
@@ -115,12 +116,35 @@ export default function AmenityMap({
   const [activeCategory, setActiveCategory] = useState<AmenityCategoryId>(defaultCategory)
   const [isVisible, setIsVisible] = useState(false)
   const [useFallback, setUseFallback] = useState(false)
-  const [loadError, setLoadError] = useState<string | null>(null)
   const [isSearching, setIsSearching] = useState(false)
   const [mapReady, setMapReady] = useState(false)
+  const [curatedList, setCuratedList] = useState<CuratedPlace[]>(() =>
+    placesForCategory(defaultCategory)
+  )
 
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
   const mapId = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID
+  const embedSrc = `https://www.google.com/maps?q=${SKYE_CANYON.center.lat},${SKYE_CANYON.center.lng}&z=14&output=embed`
+
+  const enterFallback = useCallback(() => {
+    setUseFallback(true)
+    setMapReady(false)
+    mapRef.current = null
+    markersRef.current.forEach((m) => m.setMap(null))
+    markersRef.current = []
+    communityMarkerRef.current?.setMap(null)
+    communityMarkerRef.current = null
+    infoWindowRef.current?.close()
+  }, [])
+
+  useEffect(() => {
+    const onAuthFailure = () => {
+      enterFallback()
+      setCuratedList(placesForCategory(activeCategory))
+    }
+    window.addEventListener('gmaps:auth-failure', onAuthFailure)
+    return () => window.removeEventListener('gmaps:auth-failure', onAuthFailure)
+  }, [activeCategory, enterFallback])
 
   useEffect(() => {
     const node = containerRef.current
@@ -147,22 +171,27 @@ export default function AmenityMap({
     infoWindowRef.current?.close()
   }, [])
 
-  const addCommunityMarker = useCallback((map: google.maps.Map) => {
-    const position = SKYE_CANYON.center
-    const marker = new google.maps.Marker({
-      map,
-      position,
-      title: SKYE_CANYON.name,
-      icon: {
-        url: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png',
-        scaledSize: new google.maps.Size(42, 42),
-      },
-    })
-    marker.addListener('click', () => {
-      const iw = infoWindowRef.current ?? new google.maps.InfoWindow()
-      infoWindowRef.current = iw
-      iw.setContent(
-        infoWindowHtml({
+  const openInfoWindow = useCallback((map: google.maps.Map, marker: google.maps.Marker, place: MapPlace) => {
+    const iw = infoWindowRef.current ?? new google.maps.InfoWindow()
+    infoWindowRef.current = iw
+    iw.setContent(buildInfoWindowContent(place))
+    iw.open({ map, anchor: marker })
+  }, [])
+
+  const addCommunityMarker = useCallback(
+    (map: google.maps.Map) => {
+      const position = SKYE_CANYON.center
+      const marker = new google.maps.Marker({
+        map,
+        position,
+        title: SKYE_CANYON.name,
+        icon: {
+          url: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+          scaledSize: new google.maps.Size(42, 42),
+        },
+      })
+      marker.addListener('click', () => {
+        openInfoWindow(map, marker, {
           id: 'community',
           name: SKYE_CANYON.name,
           address: `${SKYE_CANYON.address.streetAddress}, ${SKYE_CANYON.address.addressLocality}, ${SKYE_CANYON.address.addressRegion} ${SKYE_CANYON.address.postalCode}`,
@@ -171,11 +200,11 @@ export default function AmenityMap({
           directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${position.lat},${position.lng}`,
           isCommunity: true,
         })
-      )
-      iw.open({ map, anchor: marker })
-    })
-    communityMarkerRef.current = marker
-  }, [])
+      })
+      communityMarkerRef.current = marker
+    },
+    [openInfoWindow]
+  )
 
   const renderPlaces = useCallback(
     (map: google.maps.Map, places: MapPlace[]) => {
@@ -189,10 +218,7 @@ export default function AmenityMap({
           title: place.name,
         })
         marker.addListener('click', () => {
-          const iw = infoWindowRef.current ?? new google.maps.InfoWindow()
-          infoWindowRef.current = iw
-          iw.setContent(infoWindowHtml(place))
-          iw.open({ map, anchor: marker })
+          openInfoWindow(map, marker, place)
         })
         markersRef.current.push(marker)
       })
@@ -207,100 +233,36 @@ export default function AmenityMap({
         map.setZoom(13)
       }
     },
-    [addCommunityMarker, clearMarkers]
+    [addCommunityMarker, clearMarkers, openInfoWindow]
   )
 
-  const searchCategory = useCallback(
+  const searchCategoryOnMap = useCallback(
     async (map: google.maps.Map, categoryId: AmenityCategoryId) => {
-      const category = getCategoryById(categoryId)
-      setIsSearching(true)
-      setLoadError(null)
-
       const fallbackPlaces = placesForCategory(categoryId)
-        .map(curatedToMapPlace)
-        .filter((p): p is MapPlace => p != null)
+      setIsSearching(true)
 
       try {
-        const { Place } = await google.maps.importLibrary('places')
-        const { places } = await Place.searchNearby({
-          fields: ['displayName', 'location', 'formattedAddress', 'rating', 'googleMapsURI'],
-          locationRestriction: {
-            center: SKYE_CANYON.center,
-            radius: SEARCH_RADIUS_M,
-          },
-          includedPrimaryTypes: category.primaryTypes,
-          maxResultCount: 15,
-        })
+        const places = await searchCategoryNearSkyeCanyon(categoryId)
+        const mapped = places
+          .map((p, i) => placeFromGooglePlace(p, i))
+          .filter((p): p is MapPlace => p != null)
 
-        const mapped: MapPlace[] = places
-          .filter((p) => p.location)
-          .map((p, i) => {
-            const lat = p.location!.lat
-            const lng = p.location!.lng
-            return {
-              id: `place-${i}`,
-              name: p.displayName ?? 'Place',
-              address: p.formattedAddress ?? 'Las Vegas, NV',
-              rating: p.rating,
-              lat,
-              lng,
-              directionsUrl:
-                p.googleMapsURI ??
-                `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`,
-            }
-          })
-
-        if (mapped.length === 0 && fallbackPlaces.length > 0) {
-          renderPlaces(map, fallbackPlaces)
+        if (mapped.length === 0) {
+          const curatedOnMap = fallbackPlaces
+            .map(curatedToMapPlace)
+            .filter((p): p is MapPlace => p != null)
+          renderPlaces(map, curatedOnMap)
+          setCuratedList(fallbackPlaces)
         } else {
           renderPlaces(map, mapped)
+          setCuratedList([])
         }
       } catch {
-        try {
-          const service = new google.maps.PlacesService(map)
-          const legacyType = category.legacyTypes[0]
-          await new Promise<void>((resolve) => {
-            service.nearbySearch(
-              {
-                location: SKYE_CANYON.center,
-                radius: SEARCH_RADIUS_M,
-                type: legacyType,
-              },
-              (results, status) => {
-                if (status === google.maps.PlacesServiceStatus.OK && results?.length) {
-                  const mapped: MapPlace[] = results
-                    .filter((r) => r.geometry?.location)
-                    .slice(0, 15)
-                    .map((r, i) => {
-                      const lat = r.geometry!.location!.lat()
-                      const lng = r.geometry!.location!.lng()
-                      return {
-                        id: `legacy-${i}`,
-                        name: r.name ?? 'Place',
-                        address: r.vicinity ?? r.formatted_address ?? 'Las Vegas, NV',
-                        rating: r.rating,
-                        lat,
-                        lng,
-                        directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`,
-                      }
-                    })
-                  renderPlaces(map, mapped)
-                } else if (fallbackPlaces.length > 0) {
-                  renderPlaces(map, fallbackPlaces)
-                } else {
-                  renderPlaces(map, [])
-                }
-                resolve()
-              }
-            )
-          })
-        } catch {
-          if (fallbackPlaces.length > 0) {
-            renderPlaces(map, fallbackPlaces)
-          } else {
-            renderPlaces(map, [])
-          }
-        }
+        const curatedOnMap = fallbackPlaces
+          .map(curatedToMapPlace)
+          .filter((p): p is MapPlace => p != null)
+        renderPlaces(map, curatedOnMap)
+        setCuratedList(fallbackPlaces)
       } finally {
         setIsSearching(false)
       }
@@ -311,8 +273,9 @@ export default function AmenityMap({
   useEffect(() => {
     if (!isVisible || initStartedRef.current) return
 
-    if (!apiKey) {
+    if (!apiKey || mapsAuthFailed) {
       setUseFallback(true)
+      setCuratedList(placesForCategory(activeCategory))
       return
     }
 
@@ -321,8 +284,12 @@ export default function AmenityMap({
 
     async function init() {
       try {
-        await loadGoogleMapsScript(apiKey!)
-        if (cancelled || !mapHostRef.current) return
+        await loadGoogleMaps(apiKey!)
+        if (cancelled || mapsAuthFailed) {
+          enterFallback()
+          return
+        }
+        if (!mapHostRef.current) return
 
         const { Map } = await google.maps.importLibrary('maps')
         const map = new Map(mapHostRef.current, {
@@ -336,11 +303,11 @@ export default function AmenityMap({
         mapRef.current = map
         infoWindowRef.current = new google.maps.InfoWindow()
         setMapReady(true)
-        await searchCategory(map, activeCategory)
-      } catch (err) {
+        await searchCategoryOnMap(map, activeCategory)
+      } catch {
         if (!cancelled) {
-          setUseFallback(true)
-          setLoadError(err instanceof Error ? err.message : 'Map unavailable')
+          enterFallback()
+          setCuratedList(placesForCategory(activeCategory))
         }
       }
     }
@@ -352,16 +319,21 @@ export default function AmenityMap({
       mapRef.current = null
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- init once when visible
-  }, [isVisible, apiKey, compact, clearMarkers])
+  }, [isVisible, apiKey, compact, clearMarkers, enterFallback])
 
   useEffect(() => {
     const map = mapRef.current
     if (!map || !mapReady || useFallback || !apiKey) return
-    void searchCategory(map, activeCategory)
-  }, [activeCategory, searchCategory, useFallback, apiKey, mapReady])
+    void searchCategoryOnMap(map, activeCategory)
+  }, [activeCategory, searchCategoryOnMap, useFallback, apiKey, mapReady])
 
-  const staticList = placesForCategory(activeCategory)
-  const embedSrc = `https://www.google.com/maps?q=${SKYE_CANYON.center.lat},${SKYE_CANYON.center.lng}&z=14&output=embed`
+  useEffect(() => {
+    if (useFallback) {
+      setCuratedList(placesForCategory(activeCategory))
+    }
+  }, [activeCategory, useFallback])
+
+  const staticList = curatedList.length > 0 ? curatedList : placesForCategory(activeCategory)
 
   return (
     <div ref={containerRef} className="w-full">
@@ -412,9 +384,8 @@ export default function AmenityMap({
             />
             <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-t border-gray-200 p-4 max-h-[40%] overflow-y-auto">
               <p className="text-sm text-gray-600 mb-2">
-                Interactive place search requires a Google Maps API key. Showing map center and
-                curated nearby places for {getCategoryById(activeCategory).label.toLowerCase()}.
-                {loadError ? ` (${loadError})` : null}
+                Showing map center and curated nearby places for{' '}
+                {getCategoryById(activeCategory).label.toLowerCase()}.
               </p>
               <StaticPlaceList places={staticList} />
             </div>
@@ -434,6 +405,17 @@ export default function AmenityMap({
           </>
         )}
       </div>
+
+      {!useFallback && curatedList.length > 0 && (
+        <div
+          className={`mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4 ${LIST_MIN_HEIGHT_CLASS}`}
+        >
+          <p className="text-sm text-gray-600 mb-2">
+            Curated {getCategoryById(activeCategory).label.toLowerCase()} near {SKYE_CANYON.name}:
+          </p>
+          <StaticPlaceList places={curatedList} />
+        </div>
+      )}
     </div>
   )
 }

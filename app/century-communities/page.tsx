@@ -1,6 +1,7 @@
 import { Phone, MapPin, Clock, Home, Bed, Bath, Square, School, Store, Utensils, Award, Users, Trees, Dumbbell, Waves, Calendar, Tag } from 'lucide-react'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import CenturyCommunitiesRequestForm from '@/components/CenturyCommunitiesRequestForm'
 
 export const metadata: Metadata = {
   title: 'Century Communities at Skye Canyon - New Homes Las Vegas from $429,990',
@@ -395,58 +396,7 @@ export default function CenturyCommunitiesPage() {
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-2xl">
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">First Name *</label>
-                    <input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">Last Name *</label>
-                    <input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">Phone Number *</label>
-                    <input type="tel" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">Email *</label>
-                    <input type="email" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Do You Currently Rent or Own?</label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                    <option value="">Select...</option>
-                    <option value="rent">Rent</option>
-                    <option value="own">Own</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="flex items-center text-gray-700">
-                    <input type="checkbox" className="mr-3 h-5 w-5" />
-                    <span>Schedule a Tour</span>
-                  </label>
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Tour Preferences</label>
-                  <textarea className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" rows={4}></textarea>
-                </div>
-
-                <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-lg transition-colors text-lg shadow-lg">
-                  Submit Request
-                </button>
-
-                <p className="text-xs text-gray-600 text-center">
-                  By submitting this form, you agree to be contacted by Century Communities. Standard message rates apply. You can opt out at any time.
-                </p>
-              </form>
+              <CenturyCommunitiesRequestForm />
             </div>
           </div>
         </div>

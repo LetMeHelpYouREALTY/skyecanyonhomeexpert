@@ -4,7 +4,8 @@ import { CURATED_NEARBY_PLACES, formatPlaceAddress } from '@/lib/amenities/place
 import { NEARBY_AMENITIES_FAQ } from '@/lib/amenities/faq'
 
 const pagePath = SKYE_CANYON.nearbyAmenitiesPath
-const canonical = `${SKYE_CANYON.siteUrl}${pagePath}`
+/** www host (apex redirects to www); site-wide SITE_URL unchanged in this PR */
+const canonical = `https://www.skyecanyonhomeexpert.com${pagePath}`
 
 export const nearbyAmenitiesMetadata: Metadata = {
   title: `Nearby Amenities in ${SKYE_CANYON.name}, Las Vegas | Dining, Grocery & Healthcare`,
@@ -47,7 +48,7 @@ export function buildNearbyAmenitiesJsonLd() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: SKYE_CANYON.siteUrl,
+        item: 'https://www.skyecanyonhomeexpert.com',
       },
       {
         '@type': 'ListItem',

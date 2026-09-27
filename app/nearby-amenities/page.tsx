@@ -125,8 +125,9 @@ export default function NearbyAmenitiesPage() {
 
           <h2 className="text-3xl font-bold text-skye-navy not-prose mt-12">Healthcare</h2>
           <p>
-            For hospital-level care, Centennial Hills Hospital in the 89149 area is the major northwest
-            valley facility referenced by local guides serving Skye Canyon.
+            For hospital-level care, Centennial Hills Hospital Medical Center on N Durango Drive in the
+            89149 area is the major northwest valley facility referenced by local guides serving Skye
+            Canyon.
           </p>
           <ul className="not-prose space-y-3">
             {healthcarePlaces.map((place) => (
@@ -140,9 +141,17 @@ export default function NearbyAmenitiesPage() {
 
           <h2 className="text-3xl font-bold text-skye-navy not-prose mt-12">Schools</h2>
           <p>
-            Families in Skye Canyon typically look to Clark County School District assignments. Schools
-            commonly discussed for this area include William &amp; Mary Scherbenbach Elementary and Arbor
-            View High School—always verify your zoned school with CCSD for your lot.
+            Which CCSD schools are assigned to Skye Canyon addresses? Verify with the{' '}
+            <a
+              href="https://ccsd.net/schools/zoning/"
+              className="text-skye-blue font-semibold hover:underline"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              CCSD Zoning Search
+            </a>
+            . Schools often referenced for northwest Las Vegas include William and Mary Scherkenbach
+            Elementary and Arbor View High School—confirm zoning for your lot before enrolling.
           </p>
           <ul className="not-prose space-y-3">
             {schoolPlaces.map((place) => (
