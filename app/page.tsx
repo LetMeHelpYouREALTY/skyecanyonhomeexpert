@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Home, Calendar, Wrench, Users, MapPin, Sparkles, Award, Heart } from 'lucide-react'
 import type { Metadata } from 'next'
 import HomeJsonLd from '@/components/HomeJsonLd'
+import WhatsNearbySection from '@/components/amenities/WhatsNearbySection'
 
 export const metadata: Metadata = {
   title: 'Living in Skye Canyon | Homeowner Hub',
@@ -30,7 +31,7 @@ export default function HomePage() {
     {
       icon: Calendar,
       title: 'Community Living',
-      description: 'Monthly events calendar, Skye Fitness amenities, best restaurants, weekend getaways, and school ratings.',
+      description: 'Monthly events calendar, Skye Fitness amenities, best restaurants, weekend getaways, and CCSD school zoning resources.',
       href: '/community-living',
       color: 'text-green-600',
       bgColor: 'bg-green-50',
@@ -67,7 +68,7 @@ export default function HomePage() {
     {
       title: 'Guide to Skye Fitness & All Amenities',
       excerpt: 'Complete overview of fitness center, pools, parks, and community facilities.',
-      href: '/community-living/amenities',
+      href: '/nearby-amenities',
       category: 'Community',
     },
   ]
@@ -192,6 +193,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <WhatsNearbySection defaultCategory="grocery" compact />
 
       {/* Why Choose Section */}
       <section className="py-16">
