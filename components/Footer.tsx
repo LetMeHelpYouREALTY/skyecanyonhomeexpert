@@ -83,6 +83,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
           <p>&copy; {new Date().getFullYear()} Skye Canyon Living. A community lifestyle resource for Skye Canyon homeowners.</p>
+          <p className="mt-2 text-sm">Berkshire Hathaway HomeServices Nevada Properties since September 2008 · License S.0197614.LLC</p>
         </div>
       </div>
     </footer>

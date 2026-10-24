@@ -81,7 +81,7 @@ export default function ContractorsPage() {
           <Phone className="h-10 w-10 mx-auto mb-4 text-skye-gold" />
           <h2 className="text-2xl font-bold mb-3">Need a local referral?</h2>
           <p className="text-blue-100 mb-6">
-            {AGENT.name} helps Skye Canyon buyers and homeowners navigate vendors and resale requirements.
+            {AGENT.name}, Top 1% Las Vegas REALTOR®, helps Skye Canyon buyers and homeowners navigate vendors and resale requirements.
           </p>
           <a href={`tel:${AGENT.phoneDisplay}`} className="btn-primary bg-skye-gold text-skye-navy hover:bg-yellow-300">
             Call {AGENT.phoneDisplay}
