@@ -204,7 +204,7 @@ export default function AmenitiesPage() {
                 <ul className="space-y-2 text-gray-700">
                   <li>• Zumba & Dance</li>
                   <li>• Senior Fitness</li>
-                  <li>• Family Classes</li>
+                  <li>• Group fitness classes</li>
                   <li>• Personal Training</li>
                 </ul>
               </div>
