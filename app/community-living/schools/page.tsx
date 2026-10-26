@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Skye Canyon Schools Guide - Ratings & Reviews | Las Vegas NV',
-  description: 'Guide to Clark County School District and charter options near Skye Canyon: elementary, middle, and high school names, grades, and programs in northwest Las Vegas.',
+  description: 'CCSD and charter schools near Skye Canyon: elementary, middle, and high school names, grade spans, and program highlights in northwest Las Vegas.',
   keywords: 'Skye Canyon schools, Las Vegas schools, Clark County schools, Arbor View High School',
 }
 
