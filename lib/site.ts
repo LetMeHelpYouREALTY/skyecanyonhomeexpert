@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://skyecanyonhomeexpert.com'
+export const SITE_URL = 'https://www.skyecanyonhomeexpert.com'
 
 export const AGENT = {
   name: 'Dr. Jan Duffy',

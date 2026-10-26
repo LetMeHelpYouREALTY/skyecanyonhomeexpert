@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Skye Canyon Schools Guide - Ratings & Reviews | Las Vegas NV',
-  description: 'Complete guide to schools serving Skye Canyon: elementary, middle, and high schools with ratings, reviews, and information for families in northwest Las Vegas.',
+  description: 'Guide to Clark County School District and charter options near Skye Canyon: elementary, middle, and high school names, grades, and programs in northwest Las Vegas.',
   keywords: 'Skye Canyon schools, Las Vegas schools, Clark County schools, Arbor View High School',
 }
 
@@ -41,7 +41,7 @@ export default function SchoolsPage() {
       highlights: [
         'Experienced teaching staff',
         'Arts programs',
-        'Safe learning environment',
+        'Structured classroom programs',
         'Parent-teacher collaboration',
       ],
     },
@@ -140,7 +140,7 @@ export default function SchoolsPage() {
             <GraduationCap className="h-12 w-12 mb-4 text-blue-200" />
             <h1 className="text-5xl font-bold mb-4">Local Schools Deep Dive: Ratings & Reviews</h1>
             <p className="text-xl text-blue-100">
-              Complete guide to elementary, middle, and high schools serving Skye Canyon families in Clark County School District.
+              Guide to elementary, middle, and high schools with attendance boundaries serving the Skye Canyon area in Clark County School District.
             </p>
           </div>
         </div>
@@ -309,7 +309,7 @@ export default function SchoolsPage() {
                     <div className="text-gray-600 mb-2">Grades: <span className="font-semibold text-gray-900 text-lg">{school.grades}</span></div>
                     <div className="text-gray-600">Type: <span className="font-semibold text-gray-900 text-lg">{school.district}</span></div>
                   </div>
-                  <h4 className="text-2xl font-bold text-gray-900 mb-4">Why Families Choose Somerset Academy:</h4>
+                  <h4 className="text-2xl font-bold text-gray-900 mb-4">Somerset Academy highlights:</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {school.highlights.map((highlight) => (
                       <div key={highlight} className="flex items-start bg-green-50 rounded-lg p-4">
@@ -329,7 +329,7 @@ export default function SchoolsPage() {
       <section className="py-16 bg-gray-50">
         <div className="section-container">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Choosing the Right School for Your Family</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Choosing a school in the Skye Canyon area</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white rounded-lg p-6 shadow">
                 <h3 className="font-bold text-lg text-gray-900 mb-3">✓ Visit Schools in Person</h3>

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Home, Calendar, Wrench, Users, MapPin, Sparkles, Award, Heart } from 'lucide-react'
 import type { Metadata } from 'next'
 import HomeJsonLd from '@/components/HomeJsonLd'
+import { buyerConsultationCalendlyUrl } from '@/lib/calendly-url'
 
 export const metadata: Metadata = {
   title: 'Living in Skye Canyon | Homeowner Hub',
@@ -101,8 +102,17 @@ export default function HomePage() {
             <p className="text-xl md:text-2xl mb-8 text-blue-100">
               Your Complete Homeowner Resource Hub for Living in Skye Canyon, Nevada
             </p>
-            <p className="text-lg mb-10 text-blue-200">
+            <p className="text-lg mb-6 text-blue-200">
               Everything current residents need: HOA guides, community events, trusted contractors, local amenities, and more.
+            </p>
+            <p className="text-base mb-10 text-blue-100">
+              Community guide by{' '}
+              <a
+                href="https://skyecanyonrealtor.com"
+                className="text-skye-gold underline underline-offset-2 hover:text-yellow-200"
+              >
+                Dr. Jan Duffy, REALTOR
+              </a>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="tel:702-222-1964" className="bg-skye-gold text-skye-navy font-bold py-4 px-8 rounded-lg hover:bg-yellow-300 transition-all duration-200 shadow-xl hover:shadow-2xl text-lg">
@@ -111,6 +121,25 @@ export default function HomePage() {
               <Link href="/events" className="bg-white text-skye-navy font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-all duration-200 shadow-xl text-lg">
                 View Events Calendar
               </Link>
+            </div>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center text-sm md:text-base">
+              <a
+                href={buyerConsultationCalendlyUrl('homepage-buyer-consult')}
+                className="text-blue-100 underline underline-offset-2 hover:text-white"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Schedule a buyer consultation with Dr. Jan Duffy
+              </a>
+              <span className="hidden sm:inline text-blue-300" aria-hidden="true">·</span>
+              <a
+                href="https://www.skyecanyonhomesforsale.com"
+                className="text-blue-100 underline underline-offset-2 hover:text-white"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Curious what your Skye Canyon home is worth?
+              </a>
             </div>
           </div>
         </div>
