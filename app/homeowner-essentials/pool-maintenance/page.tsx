@@ -28,29 +28,6 @@ export default function PoolMaintenancePage() {
     'Inspect pool surface for cracks or damage',
   ]
 
-  const poolServices = [
-    {
-      name: 'Desert Oasis Pool Service',
-      services: ['Weekly Maintenance', 'Chemical Balancing', 'Equipment Repair', 'Green Pool Recovery'],
-      phone: '702-555-0201',
-    },
-    {
-      name: 'Skye Canyon Pool Pros',
-      services: ['Full Service', 'Filter Cleaning', 'Equipment Installation', 'Pool Opening/Closing'],
-      phone: '702-555-0202',
-    },
-    {
-      name: 'Las Vegas Pool Care',
-      services: ['Maintenance Plans', 'Repairs', 'Automation Systems', 'Energy Efficient Upgrades'],
-      phone: '702-555-0203',
-    },
-    {
-      name: 'Crystal Clear Pools',
-      services: ['Weekly Service', 'Emergency Repairs', 'Remodeling', 'Salt System Conversion'],
-      phone: '702-555-0204',
-    },
-  ]
-
   const chemicalGuide = [
     {
       chemical: 'pH Level',
@@ -229,7 +206,7 @@ export default function PoolMaintenancePage() {
           <div className="max-w-6xl mx-auto">
             <Beaker className="h-16 w-16 mx-auto mb-6 text-blue-600" />
             <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">Chemical Balance Guide</h2>
-            <p className="text-xl text-gray-600 text-center mb-12">Essential water chemistry for safe, sparkling pools</p>
+            <p className="text-xl text-gray-600 text-center mb-12">Essential water chemistry for clear, sparkling pools</p>
             
             <div className="grid grid-cols-1 gap-4">
               {chemicalGuide.map((item) => (
@@ -301,39 +278,16 @@ export default function PoolMaintenancePage() {
         </div>
       </section>
 
-      {/* Pool Service Companies */}
+      {/* Pool service referrals */}
       <section className="py-20 bg-white">
-        <div className="section-container">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">Professional Pool Service Companies</h2>
-          <p className="text-xl text-gray-600 text-center mb-12">
-            Local pool professionals serving Skye Canyon
+        <div className="section-container max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Professional Pool Service</h2>
+          <p className="text-xl text-gray-600 mb-8">
+            Many Skye Canyon homeowners hire licensed pool companies for weekly maintenance, equipment repairs, and seasonal openings. Browse our resident contractor directory or request referrals from neighbors in local homeowner groups.
           </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {poolServices.map((company) => (
-              <div key={company.name} className="card">
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{company.name}</h3>
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-gray-700 mb-2">Services:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {company.services.map((service) => (
-                        <span key={service} className="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">
-                          {service}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <a 
-                    href={`tel:${company.phone}`}
-                    className="flex items-center justify-center bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-                  >
-                    Call: {company.phone}
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
+          <a href="/resident-resources/contractors" className="btn-primary text-lg">
+            View Contractor Directory
+          </a>
         </div>
       </section>
 

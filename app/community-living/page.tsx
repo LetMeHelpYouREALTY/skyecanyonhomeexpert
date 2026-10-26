@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Community Living in Skye Canyon - Events, Restaurants & Local Guide | Nevada',
-  description: 'Discover life in Skye Canyon Nevada: monthly community events, best restaurants nearby, Skye Fitness amenities, weekend trips to Mt. Charleston, and local school ratings.',
+  description: 'Discover life in Skye Canyon Nevada: monthly community events, best restaurants nearby, Skye Fitness amenities, weekend trips to Mt. Charleston, and area schools.',
   keywords: 'things to do near Skye Canyon, Skye Canyon community events, best restaurants Skye Canyon',
 }
 
@@ -13,7 +13,7 @@ export default function CommunityLivingPage() {
     {
       icon: Calendar,
       title: 'Monthly Skye Canyon Events Calendar',
-      description: 'Stay connected with community gatherings, fitness events, holiday celebrations, and family activities.',
+      description: 'Stay connected with community gatherings, fitness events, holiday celebrations, and resident activities.',
       href: '/events',
       color: 'text-blue-600',
       bgColor: 'bg-blue-50',
@@ -44,8 +44,8 @@ export default function CommunityLivingPage() {
     },
     {
       icon: School,
-      title: 'Local Schools Deep Dive: Ratings & Reviews',
-      description: 'Comprehensive guide to elementary, middle, and high schools serving Skye Canyon families.',
+      title: 'Skye Canyon Area Schools',
+      description: 'Guide to elementary, middle, and high schools with attendance boundaries serving the Skye Canyon area.',
       href: '/community-living/schools',
       color: 'text-red-600',
       bgColor: 'bg-red-50',

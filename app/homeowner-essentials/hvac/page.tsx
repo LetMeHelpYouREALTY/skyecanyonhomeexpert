@@ -1,4 +1,4 @@
-import { Wind, ThermometerSun, Wrench, Phone, Star, CheckCircle, AlertTriangle } from 'lucide-react'
+import { Wind, ThermometerSun, Wrench, CheckCircle, AlertTriangle } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -8,37 +8,6 @@ export const metadata: Metadata = {
 }
 
 export default function HVACPage() {
-  const hvacCompanies = [
-    {
-      name: 'Air Conditioning Specialists',
-      services: ['AC Repair', 'Installation', '24/7 Emergency', 'Maintenance Plans'],
-      specialties: 'Residential HVAC experts with 30+ years in Las Vegas',
-      phone: '702-555-0101',
-      rating: '4.8',
-    },
-    {
-      name: 'Desert Air Cooling & Heating',
-      services: ['AC/Heating Repair', 'New Systems', 'Duct Cleaning', 'Smart Thermostats'],
-      specialties: 'Energy-efficient systems for desert climate',
-      phone: '702-555-0102',
-      rating: '4.7',
-    },
-    {
-      name: 'Nevada Climate Control',
-      services: ['Full HVAC Service', 'Preventive Maintenance', 'Commercial & Residential'],
-      specialties: 'Licensed, insured, same-day service available',
-      phone: '702-555-0103',
-      rating: '4.9',
-    },
-    {
-      name: 'Las Vegas Air Experts',
-      services: ['AC Repair', 'Installation', 'Maintenance Plans', 'Indoor Air Quality'],
-      specialties: 'Skye Canyon specialists, fast response times',
-      phone: '702-555-0104',
-      rating: '4.6',
-    },
-  ]
-
   const maintenanceTips = [
     {
       season: 'Spring (March-May)',
@@ -151,52 +120,20 @@ export default function HVACPage() {
         </div>
       </section>
 
-      {/* HVAC Companies */}
+      {/* Contractor directory */}
       <section className="py-20 bg-gray-50">
         <div className="section-container">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">Trusted HVAC Contractors</h2>
-          <p className="text-xl text-gray-600 text-center mb-12">Local companies recommended by Skye Canyon homeowners</p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {hvacCompanies.map((company) => (
-              <div key={company.name} className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all overflow-hidden">
-                <div className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white p-6">
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <h3 className="text-2xl font-bold mb-2">{company.name}</h3>
-                      <p className="text-cyan-100 text-sm">{company.specialties}</p>
-                    </div>
-                    <div className="bg-white text-blue-600 px-3 py-1 rounded-full flex items-center">
-                      <Star className="h-4 w-4 mr-1 fill-current" />
-                      <span className="font-bold">{company.rating}</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="p-6">
-                  <h4 className="font-bold text-gray-900 mb-3">Services:</h4>
-                  <div className="grid grid-cols-2 gap-2 mb-6">
-                    {company.services.map((service) => (
-                      <div key={service} className="flex items-center text-sm text-gray-700">
-                        <CheckCircle className="h-4 w-4 mr-2 text-green-600" />
-                        <span>{service}</span>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <a 
-                    href={`tel:${company.phone}`}
-                    className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-                  >
-                    <Phone className="h-5 w-5 mr-2" />
-                    {company.phone}
-                  </a>
-                </div>
-              </div>
-            ))}
+          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">Finding HVAC Help in Skye Canyon</h2>
+          <p className="text-xl text-gray-600 text-center mb-8 max-w-3xl mx-auto">
+            For licensed air-conditioning and heating contractors near northwest Las Vegas, use our resident contractor directory or ask neighbors for referrals. Always verify Nevada State Contractors Board licensing before you hire.
+          </p>
+          <div className="text-center mb-8">
+            <a href="/resident-resources/contractors" className="btn-primary text-lg">
+              View Contractor Directory
+            </a>
           </div>
 
-          <div className="mt-8 max-w-3xl mx-auto bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-r-lg">
+          <div className="max-w-3xl mx-auto bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-r-lg">
             <div className="flex items-start">
               <AlertTriangle className="h-6 w-6 text-yellow-600 mr-3 flex-shrink-0 mt-1" />
               <div>

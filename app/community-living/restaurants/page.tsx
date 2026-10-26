@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Best Restaurants Near Skye Canyon (2025) - Local Dining Guide | Las Vegas NV',
-  description: 'Complete guide to the best restaurants near Skye Canyon: breakfast spots, family dining, fast casual, coffee shops, and local favorites in northwest Las Vegas.',
+  description: 'Complete guide to the best restaurants near Skye Canyon: breakfast spots, casual dining, fast casual, coffee shops, and local favorites in northwest Las Vegas.',
   keywords: 'restaurants near Skye Canyon, Skye Canyon dining, Las Vegas restaurants, northwest Las Vegas food',
 }
 
@@ -14,7 +14,7 @@ export default function RestaurantsPage() {
       type: 'American, Breakfast & Brunch',
       location: 'Las Vegas, NV 89149',
       description: 'Cozy chain restaurant serving hearty American comfort food all day, including breakfast favorites.',
-      bestFor: 'Family Brunch, Breakfast',
+      bestFor: 'Weekend Brunch, Breakfast',
       icon: Coffee,
       rating: '4.2',
     },
@@ -50,7 +50,7 @@ export default function RestaurantsPage() {
       type: 'Mexican',
       location: 'Las Vegas, NV 89149',
       description: 'Authentic Mexican cuisine with traditional flavors, generous portions, and friendly service.',
-      bestFor: 'Mexican Food, Family Dinner',
+      bestFor: 'Mexican Food, Group Dinner',
       icon: Utensils,
       rating: '4.4',
     },
@@ -95,7 +95,7 @@ export default function RestaurantsPage() {
       type: 'Frozen Yogurt, Dessert',
       location: 'Las Vegas, NV 89119',
       description: 'Self-serve frozen yogurt chain with a variety of flavors and toppings, priced by weight.',
-      bestFor: 'Dessert, Family Treat',
+      bestFor: 'Dessert, Sweet Treat',
       icon: IceCream,
       rating: '4.4',
     },
@@ -103,7 +103,7 @@ export default function RestaurantsPage() {
 
   const categories = [
     { name: 'Breakfast & Brunch', icon: Coffee, count: 3 },
-    { name: 'Family Dining', icon: Utensils, count: 5 },
+    { name: 'Casual Dining', icon: Utensils, count: 5 },
     { name: 'Healthy Options', icon: Salad, count: 2 },
     { name: 'Desserts', icon: IceCream, count: 1 },
   ]
@@ -117,7 +117,7 @@ export default function RestaurantsPage() {
             <Utensils className="h-12 w-12 mb-4 text-orange-200" />
             <h1 className="text-5xl font-bold mb-4">Best Restaurants Near Skye Canyon (2025)</h1>
             <p className="text-xl text-orange-100">
-              Your complete guide to local dining—from quick bites to family favorites, all within minutes of home.
+              Your complete guide to local dining—from quick bites to neighborhood favorites, all within minutes of home.
             </p>
           </div>
         </div>
@@ -208,7 +208,7 @@ export default function RestaurantsPage() {
               </div>
 
               <div className="bg-white rounded-lg p-6 shadow">
-                <h3 className="font-bold text-lg text-gray-900 mb-3">Family-Friendly</h3>
+                <h3 className="font-bold text-lg text-gray-900 mb-3">Relaxed Dining</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li>• <strong>Michoacan</strong> - Kids menu & large portions</li>
                   <li>• <strong>Menchie's</strong> - Perfect dessert stop</li>

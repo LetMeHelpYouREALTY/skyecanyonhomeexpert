@@ -222,7 +222,7 @@ export default function PalomaCollectionPage() {
             <div className="text-center p-6 bg-gray-50 rounded-lg">
               <Home className="h-12 w-12 text-amber-500 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Cozy Casual Dining Areas</h3>
-              <p className="text-gray-600">Perfect for everyday family meals and gatherings</p>
+              <p className="text-gray-600">Perfect for everyday meals and gatherings</p>
             </div>
             <div className="text-center p-6 bg-gray-50 rounded-lg">
               <Building2 className="h-12 w-12 text-amber-500 mx-auto mb-4" />
@@ -418,7 +418,7 @@ export default function PalomaCollectionPage() {
               <strong>Clark County School District</strong>
             </p>
             <p className="text-gray-600">
-              Families residing in Toll Brothers at Skye Canyon - Paloma Collection will be served by Clark County School District, offering quality education options for students of all ages.
+              Homes in Toll Brothers at Skye Canyon — Paloma Collection are served by Clark County School District, with public and charter options for students from pre-K through grade 12.
             </p>
           </div>
         </div>

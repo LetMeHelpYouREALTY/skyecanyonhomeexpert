@@ -17,7 +17,7 @@ export default function CommunityPage() {
     },
     {
       name: 'Toll Brothers',
-      description: 'Craft luxurious living with contemporary designs from Toll Brothers, ideal for both home offices and large family setups.',
+      description: 'Craft luxurious living with contemporary designs from Toll Brothers, ideal for home offices and flexible floor plans.',
       icon: Home,
     },
     {
@@ -322,8 +322,8 @@ export default function CommunityPage() {
               <p className="text-xl text-blue-100 mb-6">
                 Exclusive benefits for Skye Canyon residents with preferred access and discounts at select partner destinations throughout Las Vegas.
               </p>
-              <Link href="/community/partnerships" className="btn-primary bg-white text-blue-600 hover:bg-gray-100">
-                Learn About Partnerships
+              <Link href="/community/amenities" className="btn-primary bg-white text-blue-600 hover:bg-gray-100">
+                Explore Community Amenities
               </Link>
             </div>
           </div>
@@ -397,9 +397,14 @@ export default function CommunityPage() {
           <p className="text-xl mb-8 text-purple-100 max-w-2xl mx-auto">
             Take your real estate career to new heights by becoming part of a community that values excellence and innovation.
           </p>
-          <Link href="/agents" className="btn-primary bg-white text-purple-700 hover:bg-gray-100 text-lg">
-            Get Certified Today
-          </Link>
+          <a
+            href="https://skyecanyonrealtor.com"
+            className="btn-primary bg-white text-purple-700 hover:bg-gray-100 text-lg"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Visit Skye Canyon REALTOR
+          </a>
         </div>
       </section>
 

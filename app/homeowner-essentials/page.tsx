@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Home, Droplets, Wind, Shield, Wrench, TreePine } from 'lucide-react'
+import { Home, Droplets, Wind, TreePine } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -35,20 +35,6 @@ export default function HomeownerEssentialsPage() {
       title: 'Pool Maintenance in Skye Canyon Climate',
       description: 'Complete pool care guide: cleaning schedules, chemical balance, equipment maintenance, and winterizing in Nevada.',
       href: '/homeowner-essentials/pool-maintenance',
-      featured: false,
-    },
-    {
-      icon: Shield,
-      title: 'Skye Canyon Home Security Options',
-      description: 'Best home security systems, monitoring services, smart home integration, and neighborhood watch programs.',
-      href: '/homeowner-essentials/security',
-      featured: false,
-    },
-    {
-      icon: Wrench,
-      title: 'Home Maintenance Checklist',
-      description: 'Seasonal maintenance tasks, inspection schedules, and preventive care to protect your Skye Canyon home.',
-      href: '/homeowner-essentials/maintenance-checklist',
       featured: false,
     },
   ]

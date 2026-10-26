@@ -21,7 +21,7 @@ export default function AmenitiesPage() {
         'Group fitness classes',
         'Junior Olympic pool',
         'Lap swimming lanes',
-        'Family swim areas',
+        'Leisure swim areas',
         'Professional trainers available',
       ],
     },
