@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { SITE_URL } from '@/lib/site'
+import { SKYE_CANYON } from '@/lib/community/skye-canyon'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
@@ -26,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/events',
     '/paloma-collection',
     '/century-communities',
+    SKYE_CANYON.nearbyAmenitiesPath,
   ]
 
   const lastModified = new Date()
@@ -33,7 +35,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified,
-    changeFrequency: path === '' ? 'weekly' : 'monthly',
-    priority: path === '' ? 1 : 0.7,
+    changeFrequency:
+      path === '' ? 'weekly' : path === SKYE_CANYON.nearbyAmenitiesPath ? 'weekly' : 'monthly',
+    priority: path === '' ? 1 : path === SKYE_CANYON.nearbyAmenitiesPath ? 0.9 : 0.7,
   }))
 }

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Calendar, MapPin, Utensils, School, Mountain, Users, Heart, Dumbbell } from 'lucide-react'
 import type { Metadata } from 'next'
+import WhatsNearbySection from '@/components/amenities/WhatsNearbySection'
 
 export const metadata: Metadata = {
   title: 'Community Living in Skye Canyon - Events, Restaurants & Local Guide | Nevada',
@@ -49,6 +50,14 @@ export default function CommunityLivingPage() {
       href: '/community-living/schools',
       color: 'text-red-600',
       bgColor: 'bg-red-50',
+    },
+    {
+      icon: MapPin,
+      title: 'Nearby Amenities Map',
+      description: 'Interactive map of grocery, dining, healthcare, parks, and schools around Skye Canyon.',
+      href: '/nearby-amenities',
+      color: 'text-teal-600',
+      bgColor: 'bg-teal-50',
     },
     {
       icon: MapPin,
@@ -107,6 +116,8 @@ export default function CommunityLivingPage() {
           </div>
         </div>
       </section>
+
+      <WhatsNearbySection defaultCategory="restaurants" className="py-16 bg-gray-50" />
 
       {/* Community Highlights */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">

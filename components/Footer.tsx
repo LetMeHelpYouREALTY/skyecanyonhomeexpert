@@ -6,7 +6,8 @@ export default function Footer() {
     { name: 'HOA Guide', href: '/homeowner-essentials/hoa-guide' },
     { name: 'Events Calendar', href: '/events' },
     { name: 'Contractor Directory', href: '/resident-resources/contractors' },
-    { name: 'Amenities', href: '/community-living/amenities' },
+    { name: 'Nearby Amenities Map', href: '/nearby-amenities' },
+    { name: 'On-Site Amenities', href: '/community/amenities' },
   ]
 
   const resources = [

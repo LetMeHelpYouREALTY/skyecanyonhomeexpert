@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, Home, Bed, Bath, Square, Car, Building2, Waves, Dumbbell, Users, ChevronRight, Star, Award } from 'lucide-react'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import WhatsNearbySection from '@/components/amenities/WhatsNearbySection'
 
 export const metadata: Metadata = {
   title: 'Toll Brothers at Skye Canyon - Paloma Collection | Luxury Homes Las Vegas',
@@ -454,6 +455,13 @@ export default function PalomaCollectionPage() {
           </div>
         </div>
       </section>
+
+      <WhatsNearbySection
+        title="What's Near Paloma at Skye Canyon"
+        description="Explore grocery, dining, healthcare, and recreation around your new home in northwest Las Vegas."
+        defaultCategory="grocery"
+        className="py-16 bg-white"
+      />
 
       {/* Contact Section */}
       <section className="py-20 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
