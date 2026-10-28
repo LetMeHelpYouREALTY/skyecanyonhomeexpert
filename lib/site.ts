@@ -5,7 +5,7 @@ export const AGENT = {
   jobTitle: 'REALTOR',
   license: 'S.0197614.LLC',
   brokerage: 'Berkshire Hathaway HomeServices Nevada Properties',
-  phone: '+1-702-222-1964',
-  phoneDisplay: '702-222-1964',
+  phone: '+1-702-500-1902',
+  phoneDisplay: '702-500-1902',
   areaServed: ['Skye Canyon', 'Las Vegas', 'Nevada'],
 }

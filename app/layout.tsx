@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: '%s | Skye Canyon Home Expert',
   },
   description:
-    'Skye Canyon homeowner hub: HOA guides, community life, and resident resources for northwest Las Vegas. Dr. Jan Duffy, REALTOR — 702-222-1964.',
+    'Skye Canyon homeowner hub: HOA guides, community life, and resident resources for northwest Las Vegas. Dr. Jan Duffy, REALTOR — 702-500-1902.',
   keywords:
     'living in Skye Canyon Nevada, Skye Canyon HOA rules explained, best contractors Skye Canyon, things to do near Skye Canyon, Skye Canyon community events calendar',
   openGraph: {
