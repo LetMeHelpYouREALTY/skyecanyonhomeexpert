@@ -30,9 +30,9 @@ export default function Footer() {
               Your trusted resource hub for everything about living in Skye Canyon, Nevada.
             </p>
             <div className="space-y-2">
-              <a href="tel:702-222-1964" className="flex items-center space-x-2 text-skye-gold hover:text-yellow-300">
+              <a href="tel:702-500-1902" className="flex items-center space-x-2 text-skye-gold hover:text-yellow-300">
                 <Phone className="h-4 w-4" />
-                <span>702-222-1964</span>
+                <span>702-500-1902</span>
               </a>
             </div>
           </div>
@@ -72,7 +72,7 @@ export default function Footer() {
               Connect with fellow Skye Canyon homeowners and stay updated on local events.
             </p>
             <a
-              href="tel:702-222-1964"
+              href="tel:702-500-1902"
               className="inline-flex items-center space-x-2 bg-skye-gold text-skye-navy font-semibold py-2 px-4 rounded-lg hover:bg-yellow-300 transition-colors"
             >
               <Users className="h-4 w-4" />
