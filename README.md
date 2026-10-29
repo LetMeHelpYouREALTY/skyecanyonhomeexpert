@@ -77,7 +77,7 @@ npm start
 
 **Join the Skye Canyon Homeowner Network**
 
-Phone: 702-500-1955
+Phone: 702-222-1964
 
 ## 📝 License
 
