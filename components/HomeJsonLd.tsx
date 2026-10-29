@@ -9,7 +9,7 @@ const homeFaqs = [
   {
     question: 'How can a real estate agent help if I am buying in Skye Canyon?',
     answer:
-      'A local agent can explain neighborhoods within Skye Canyon, coordinate showings, and help you review disclosures, HOA documents, and resale requirements before you close. For buyer representation in Skye Canyon, contact Dr. Jan Duffy at 702-222-1964.',
+      'A local agent can explain neighborhoods within Skye Canyon, coordinate showings, and help you review disclosures, HOA documents, and resale requirements before you close. For buyer representation in Skye Canyon, contact Dr. Jan Duffy at 702-500-1955.',
   },
   {
     question: 'What should new homeowners review after moving into Skye Canyon?',

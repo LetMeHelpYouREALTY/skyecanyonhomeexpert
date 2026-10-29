@@ -255,8 +255,8 @@ export default function RestaurantsPage() {
           <p className="text-xl mb-8 text-orange-100 max-w-2xl mx-auto">
             Help us keep this guide updated for fellow Skye Canyon residents.
           </p>
-          <a href="tel:702-222-1964" className="btn-primary bg-white text-orange-600 hover:bg-gray-100">
-            Contact Us: 702-222-1964
+          <a href="tel:702-500-1955" className="btn-primary bg-white text-orange-600 hover:bg-gray-100">
+            Contact Us: 702-500-1955
           </a>
         </div>
       </section>

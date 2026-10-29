@@ -360,8 +360,8 @@ export default function SchoolsPage() {
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
             Join the Skye Canyon Homeowner Network to connect with parents and get insider school tips.
           </p>
-          <a href="tel:702-222-1964" className="btn-primary bg-white text-blue-700 hover:bg-gray-100 text-lg">
-            Call: 702-222-1964
+          <a href="tel:702-500-1955" className="btn-primary bg-white text-blue-700 hover:bg-gray-100 text-lg">
+            Call: 702-500-1955
           </a>
         </div>
       </section>

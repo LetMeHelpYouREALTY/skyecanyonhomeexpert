@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from 'react'
 
 const FORM_NAME = 'Century Communities Request Information'
-const CONTACT_PHONE = '702-222-1964'
+const CONTACT_PHONE = '702-500-1955'
 const SUBMIT_ERROR_MESSAGE = `Sorry, something went wrong sending your message. Please call or text Dr. Jan Duffy at ${CONTACT_PHONE}.`
 
 export default function CenturyCommunitiesRequestForm() {
