@@ -7,7 +7,7 @@ import { buyerConsultationCalendlyUrl } from '@/lib/calendly-url'
 export const metadata: Metadata = {
   title: 'Living in Skye Canyon | Homeowner Hub',
   description:
-    'Skye Canyon homeowner hub: HOA guides, events, contractors, amenities, and northwest Las Vegas living tips. Questions? Dr. Jan Duffy — 702-222-1964.',
+    'Skye Canyon homeowner hub: HOA guides, events, contractors, amenities, and northwest Las Vegas living tips. Questions? Dr. Jan Duffy — 702-500-1955.',
   alternates: {
     canonical: '/',
   },
@@ -115,8 +115,8 @@ export default function HomePage() {
               </a>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:702-222-1964" className="bg-skye-gold text-skye-navy font-bold py-4 px-8 rounded-lg hover:bg-yellow-300 transition-all duration-200 shadow-xl hover:shadow-2xl text-lg">
-                Join Homeowner Network: 702-222-1964
+              <a href="tel:702-500-1955" className="bg-skye-gold text-skye-navy font-bold py-4 px-8 rounded-lg hover:bg-yellow-300 transition-all duration-200 shadow-xl hover:shadow-2xl text-lg">
+                Join Homeowner Network: 702-500-1955
               </a>
               <Link href="/events" className="bg-white text-skye-navy font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-all duration-200 shadow-xl text-lg">
                 View Events Calendar
@@ -265,10 +265,10 @@ export default function HomePage() {
             Connect with neighbors, stay informed about community events, and access exclusive homeowner resources.
           </p>
           <a
-            href="tel:702-222-1964"
+            href="tel:702-500-1955"
             className="inline-block bg-skye-gold text-skye-navy font-bold py-4 px-10 rounded-lg hover:bg-yellow-300 transition-all duration-200 shadow-xl hover:shadow-2xl text-lg"
           >
-            Call Now: 702-222-1964
+            Call Now: 702-500-1955
           </a>
         </div>
       </section>

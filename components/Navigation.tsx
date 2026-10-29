@@ -42,10 +42,10 @@ export default function Navigation() {
               </Link>
             ))}
             <a
-              href="tel:702-222-1964"
+              href="tel:702-500-1955"
               className="btn-primary text-sm"
             >
-              Call: 702-222-1964
+              Call: 702-500-1955
             </a>
           </div>
 
@@ -73,10 +73,10 @@ export default function Navigation() {
               </Link>
             ))}
             <a
-              href="tel:702-222-1964"
+              href="tel:702-500-1955"
               className="block mx-4 mt-2 text-center btn-primary"
             >
-              Call: 702-222-1964
+              Call: 702-500-1955
             </a>
           </div>
         )}

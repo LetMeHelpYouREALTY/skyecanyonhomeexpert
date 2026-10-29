@@ -139,8 +139,8 @@ export default function CommunityLivingPage() {
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
             Join our vibrant community and discover what makes Skye Canyon special.
           </p>
-          <a href="tel:702-222-1964" className="btn-primary bg-skye-gold text-skye-navy hover:bg-yellow-300">
-            Call: 702-222-1964
+          <a href="tel:702-500-1955" className="btn-primary bg-skye-gold text-skye-navy hover:bg-yellow-300">
+            Call: 702-500-1955
           </a>
         </div>
       </section>

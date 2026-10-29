@@ -151,8 +151,8 @@ export default function ResidentResourcesPage() {
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
             Get exclusive access to local recommendations, community updates, and resident-only resources.
           </p>
-          <a href="tel:702-222-1964" className="btn-primary bg-skye-gold text-skye-navy hover:bg-yellow-300">
-            Call: 702-222-1964
+          <a href="tel:702-500-1955" className="btn-primary bg-skye-gold text-skye-navy hover:bg-yellow-300">
+            Call: 702-500-1955
           </a>
         </div>
       </section>
