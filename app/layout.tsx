@@ -5,7 +5,6 @@ import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { SITE_URL } from '@/lib/site'
-import WidgetTracker from './widget-tracker'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -60,7 +59,6 @@ export default function RootLayout({
         <Navigation />
         <main>{children}</main>
         <Footer />
-        <WidgetTracker />
       </body>
     </html>
   )
