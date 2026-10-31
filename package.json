@@ -11,6 +11,8 @@
     "test": "node --import tsx --test lib/fub.test.ts"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "lucide-react": "0.400.0",
     "next": "15.5.28",
     "react": "^19.2.0",
