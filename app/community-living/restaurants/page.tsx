@@ -2,6 +2,7 @@ import { Utensils, MapPin, Star, Coffee, Pizza, Salad, IceCream } from 'lucide-r
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/community-living/restaurants' },
   title: 'Best Restaurants Near Skye Canyon (2025) - Local Dining Guide | Las Vegas NV',
   description: 'Complete guide to the best restaurants near Skye Canyon: breakfast spots, casual dining, fast casual, coffee shops, and local favorites in northwest Las Vegas.',
   keywords: 'restaurants near Skye Canyon, Skye Canyon dining, Las Vegas restaurants, northwest Las Vegas food',

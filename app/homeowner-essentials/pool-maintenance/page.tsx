@@ -2,6 +2,7 @@ import { Droplets, Sun, ThermometerSun, Beaker, Calendar, AlertCircle, CheckCirc
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/homeowner-essentials/pool-maintenance' },
   title: 'Pool Maintenance in Skye Canyon Climate | Las Vegas Pool Care Guide',
   description: 'Complete pool care guide for Skye Canyon homeowners: cleaning schedules, chemical balance, equipment maintenance, and winterizing tips for Nevada desert climate.',
   keywords: 'pool maintenance Skye Canyon, Las Vegas pool care, desert pool maintenance, best contractors Skye Canyon',

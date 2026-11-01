@@ -2,6 +2,7 @@ import { Phone, Mail, FileText, DollarSign, Home, AlertCircle, CheckCircle } fro
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/homeowner-essentials/hoa-guide' },
   title: 'Complete Skye Canyon HOA Guide - Rules, Fees & Contacts Explained | Nevada',
   description: 'Everything about Skye Canyon HOA rules explained: monthly fees, architectural guidelines, amenity access, contact information, and regulations for homeowners in Nevada.',
   keywords: 'Skye Canyon HOA rules explained, Skye Canyon HOA fees, Skye Canyon homeowner association',

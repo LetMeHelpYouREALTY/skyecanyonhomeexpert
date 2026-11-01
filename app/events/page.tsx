@@ -3,6 +3,7 @@ import { Calendar, Bell, MapPin, Users } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/events' },
   title: 'Skye Canyon Events & Community Calendar',
   description:
     'How to find Skye Canyon community events, fitness classes, and neighborhood gatherings in northwest Las Vegas—plus tips for staying in the loop.',

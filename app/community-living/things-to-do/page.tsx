@@ -3,6 +3,7 @@ import { Compass, Mountain, Utensils, Dumbbell } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/community-living/things-to-do' },
   title: 'Things to Do Near Skye Canyon',
   description:
     'Outdoor recreation, dining, and day trips near Skye Canyon in northwest Las Vegas—from trails and parks to Red Rock and Mount Charleston.',

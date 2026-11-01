@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import CenturyCommunitiesRequestForm from '@/components/CenturyCommunitiesRequestForm'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/century-communities' },
   title: 'Century Communities at Skye Canyon - New Homes Las Vegas from $429,990',
   description: 'New single-family homes and townhomes in Skye Canyon, Las Vegas, NV by Century Communities starting from $429,990. 5 collections available with quick move-in homes. Premier master-planned community.',
   keywords: 'Century Communities Skye Canyon, new homes Las Vegas, Skye Canyon homes for sale, Las Vegas new construction',

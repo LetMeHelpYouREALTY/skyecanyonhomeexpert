@@ -3,6 +3,7 @@ import { Mountain, Snowflake, Trees } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/community-living/mt-charleston' },
   title: 'Mount Charleston Day Trips from Skye Canyon',
   description:
     'Plan a Mount Charleston getaway from Skye Canyon: hiking, picnics, seasonal snow, and driving tips from northwest Las Vegas.',

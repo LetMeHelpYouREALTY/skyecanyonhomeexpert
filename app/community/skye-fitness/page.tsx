@@ -3,6 +3,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/community/skye-fitness' },
   title: 'Skye Fitness Center - World-Class Gym & Junior Olympic Pool | Skye Canyon',
   description: 'State-of-the-art fitness center at Skye Canyon featuring cardio equipment, free weights, group fitness classes, junior Olympic pool, and professional trainers. Living fit has a new home.',
 }

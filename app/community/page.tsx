@@ -3,6 +3,7 @@ import { MapPin, Phone, Home, Dumbbell, Trees, Store, School, Users, Calendar, A
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/community' },
   title: "Las Vegas' Premier Master-Planned Community - Skye Canyon Nevada",
   description: "Discover Skye Canyon, Las Vegas' premier master-planned community. Modern homes, stunning natural landscapes, world-class amenities, fitness center, parks, trails, and vibrant community events.",
   keywords: "Skye Canyon Las Vegas, master-planned community Nevada, Skye Canyon homes, Skye Canyon amenities, northwest Las Vegas",

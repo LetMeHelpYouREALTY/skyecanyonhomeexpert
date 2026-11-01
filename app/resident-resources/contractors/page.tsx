@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { AGENT } from '@/lib/site'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/resident-resources/contractors' },
   title: 'Skye Canyon Contractor Directory Guide',
   description:
     'How Skye Canyon homeowners can find licensed plumbers, electricians, landscapers, and HVAC pros—vetting tips and HOA-friendly project planning.',

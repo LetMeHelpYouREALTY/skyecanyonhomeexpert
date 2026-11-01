@@ -3,6 +3,7 @@ import { BookOpen, CheckCircle } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/resident-resources/new-resident-guide' },
   title: 'New Resident Guide for Skye Canyon',
   description:
     'Move-in checklist for new Skye Canyon homeowners: HOA documents, utilities, mail, trash, amenities, and northwest Las Vegas essentials.',

@@ -3,6 +3,7 @@ import { Heart, Dog } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/resident-resources/pet-services' },
   title: 'Pet Services Near Skye Canyon',
   description:
     'Pet-friendly tips for Skye Canyon homeowners: leash rules in common areas, local vet and groomer search ideas, and dog parks in northwest Las Vegas.',

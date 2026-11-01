@@ -3,6 +3,7 @@ import { Trash2, Recycle } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/resident-resources/trash-schedule' },
   title: 'Skye Canyon Trash & Recycling Schedule',
   description:
     'How Skye Canyon residents find trash and recycling pickup days, bulk item rules, and holiday schedule changes in northwest Las Vegas.',

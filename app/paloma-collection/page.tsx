@@ -3,6 +3,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/paloma-collection' },
   title: 'Toll Brothers at Skye Canyon - Paloma Collection | Luxury Homes Las Vegas',
   description: 'New luxury homes in Las Vegas, NV. Single-family homes starting at $549,995. 3-5 bedrooms, 2,263+ sqft. Gated community with pool, fitness center, and master-plan amenities.',
   keywords: 'Toll Brothers Skye Canyon, Paloma Collection, luxury homes Las Vegas, new homes Skye Canyon, gated community Las Vegas',

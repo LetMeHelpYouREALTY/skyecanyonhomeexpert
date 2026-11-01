@@ -3,6 +3,7 @@ import { Facebook, Users } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/resident-resources/facebook-groups' },
   title: 'Skye Canyon Neighborhood Groups',
   description:
     'How Skye Canyon residents find neighborhood Facebook groups and online forums to share local tips, events, and contractor referrals safely.',

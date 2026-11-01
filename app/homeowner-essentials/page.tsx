@@ -3,6 +3,7 @@ import { Home, Droplets, Wind, TreePine } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/homeowner-essentials' },
   title: 'Homeowner Essentials - Skye Canyon HOA Guide & Home Maintenance | Nevada',
   description: 'Essential guides for Skye Canyon homeowners: Complete HOA rules explained, desert landscaping tips, best HVAC companies, pool maintenance, and home security options in Nevada.',
 }

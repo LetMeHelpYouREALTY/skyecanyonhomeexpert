@@ -3,6 +3,7 @@ import { Wrench, Users, Trash2, Heart, BookOpen, Facebook } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/resident-resources' },
   title: 'Skye Canyon Resident Resources - Contractors, Guides & Community Info',
   description: 'Essential resources for Skye Canyon residents: contractor directory, new resident welcome guide, trash schedules, pet services, and neighborhood Facebook groups.',
   keywords: 'Skye Canyon contractors, best contractors Skye Canyon, Skye Canyon community resources',

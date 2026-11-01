@@ -2,6 +2,7 @@ import { Wind, ThermometerSun, Wrench, CheckCircle, AlertTriangle } from 'lucide
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/homeowner-essentials/hvac' },
   title: 'Best HVAC Companies Servicing Skye Canyon | Las Vegas Air Conditioning',
   description: 'Trusted HVAC contractors for Skye Canyon homeowners: air conditioning repair, maintenance, installation, and energy-saving tips for desert living in Las Vegas, Nevada.',
   keywords: 'HVAC Skye Canyon, air conditioning Las Vegas, AC repair Skye Canyon, best contractors Skye Canyon',

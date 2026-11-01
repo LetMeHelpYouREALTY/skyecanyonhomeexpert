@@ -3,6 +3,7 @@ import { Calendar, MapPin, Utensils, School, Mountain, Users, Heart, Dumbbell } 
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/community-living' },
   title: 'Community Living in Skye Canyon - Events, Restaurants & Local Guide | Nevada',
   description: 'Discover life in Skye Canyon Nevada: monthly community events, best restaurants nearby, Skye Fitness amenities, weekend trips to Mt. Charleston, and area schools.',
   keywords: 'things to do near Skye Canyon, Skye Canyon community events, best restaurants Skye Canyon',

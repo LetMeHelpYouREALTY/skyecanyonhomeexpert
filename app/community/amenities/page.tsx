@@ -3,6 +3,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/community/amenities' },
   title: 'Skye Canyon Amenities - Fitness Center, Pools, Parks & Trails | Las Vegas NV',
   description: 'Explore world-class amenities at Skye Canyon: Skye Fitness center with junior Olympic pool, Skye Center with Aspire Coffee House, parks, trails, bike lanes, and community gathering spaces.',
 }

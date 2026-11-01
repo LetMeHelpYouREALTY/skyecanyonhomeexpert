@@ -2,6 +2,7 @@ import { School, GraduationCap, Users, BookOpen, Award, MapPin, Star } from 'luc
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/community-living/schools' },
   title: 'Skye Canyon Area Schools | Las Vegas NV',
   description: 'CCSD and charter schools near Skye Canyon: elementary, middle, and high school names, grade spans, and program highlights in northwest Las Vegas.',
   keywords: 'Skye Canyon schools, Las Vegas schools, Clark County schools, Arbor View High School',

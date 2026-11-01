@@ -2,6 +2,7 @@ import { TreePine, Droplets, Sun, Sprout, ThermometerSun } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/homeowner-essentials/landscaping' },
   title: 'Desert Landscaping Tips for Skye Canyon Yards | Nevada Xeriscaping Guide',
   description: 'Complete desert landscaping guide for Skye Canyon homeowners: water-wise plants, xeriscaping tips, HOA-approved designs, and maintaining beautiful yards in Nevada climate.',
 }
