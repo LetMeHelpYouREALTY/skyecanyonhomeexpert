@@ -17,7 +17,7 @@ const LISTING_CONSULTATION_URL =
 
 export const metadata: Metadata = {
   alternates: { canonical: '/resident-resources' },
-  title: 'Skye Canyon Resident Resources | Dr. Jan Duffy',
+  title: 'Resident Resources | Dr. Jan Duffy',
   description:
     'Skye Center, Skye Canyon Park, and HOA info for Skye Canyon homeowners (89166). Contractor guides, schools link, buy/sell resources. Dr. Jan Duffy.',
   keywords: 'Skye Canyon contractors, best contractors Skye Canyon, Skye Canyon community resources',
