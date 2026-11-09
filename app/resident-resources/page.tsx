@@ -1,11 +1,25 @@
 import Link from 'next/link'
-import { Wrench, Users, Trash2, Heart, BookOpen, Facebook } from 'lucide-react'
+import {
+  Wrench,
+  Users,
+  Trash2,
+  Heart,
+  BookOpen,
+  Facebook,
+  MapPin,
+  Building2,
+  Trees,
+} from 'lucide-react'
 import type { Metadata } from 'next'
+
+const LISTING_CONSULTATION_URL =
+  'https://calendly.com/drjanduffy/listing-consultation?utm_source=skyecanyonhomeexpert.com&utm_medium=website&utm_content=buy-sell-block'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/resident-resources' },
-  title: 'Skye Canyon Resident Resources - Contractors, Guides & Community Info',
-  description: 'Essential resources for Skye Canyon residents: contractor directory, new resident welcome guide, trash schedules, pet services, and neighborhood Facebook groups.',
+  title: 'Skye Canyon Resident Resources | Dr. Jan Duffy',
+  description:
+    'Skye Center, Skye Canyon Park, and HOA info for Skye Canyon homeowners (89166). Contractor guides, schools link, buy/sell resources. Dr. Jan Duffy.',
   keywords: 'Skye Canyon contractors, best contractors Skye Canyon, Skye Canyon community resources',
 }
 
@@ -76,6 +90,74 @@ export default function ResidentResourcesPage() {
         </div>
       </section>
 
+      {/* Community facts (sourced skyecanyon.com, verified 2026-11-09) */}
+      <section className="py-16 bg-white border-b border-gray-100">
+        <div className="section-container max-w-4xl">
+          <h2 className="text-3xl font-bold text-skye-navy mb-6">Skye Canyon at a glance</h2>
+          <p className="text-gray-700 mb-8 leading-relaxed">
+            Skye Canyon is a 1,000-acre master-planned community in northwest Las Vegas (ZIP 89166).
+            Community programming is centered at{' '}
+            <strong>10111 W Skye Canyon Park Dr, Las Vegas, NV 89166</strong> — the address for the
+            Skye Center and adjacent Skye Canyon Park.
+          </p>
+          <ul className="space-y-6 text-gray-700">
+            <li className="flex gap-4">
+              <Trees className="h-8 w-8 shrink-0 text-green-600" aria-hidden />
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-1">Skye Canyon Park</h3>
+                <p className="leading-relaxed">
+                  A 15-acre neighborhood park with open space, trails, and recreation areas for
+                  residents.
+                </p>
+              </div>
+            </li>
+            <li className="flex gap-4">
+              <Building2 className="h-8 w-8 shrink-0 text-amber-600" aria-hidden />
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-1">Skye Center</h3>
+                <p className="leading-relaxed">
+                  The 8,142 sq ft community hub at Skye Canyon Park Drive — events, gathering
+                  space, and resident services.
+                </p>
+              </div>
+            </li>
+            <li className="flex gap-4">
+              <Users className="h-8 w-8 shrink-0 text-teal-600" aria-hidden />
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-1">Community association</h3>
+                <p className="leading-relaxed">
+                  The <strong>Skye Canyon Community Association</strong> is managed by{' '}
+                  <strong>Olympia Management Services</strong>. For association and amenity
+                  questions, use the{' '}
+                  <a
+                    href="https://skyecanyon.com/contact"
+                    className="text-skye-blue font-semibold hover:underline"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Skye Canyon contact page
+                  </a>
+                  .
+                </p>
+              </div>
+            </li>
+            <li className="flex gap-4">
+              <MapPin className="h-8 w-8 shrink-0 text-blue-600" aria-hidden />
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-1">Schools</h3>
+                <p className="leading-relaxed">
+                  CCSD school names and grade spans for the Skye Canyon area are listed on our{' '}
+                  <Link href="/community-living/schools" className="text-skye-blue font-semibold hover:underline">
+                    schools guide
+                  </Link>
+                  .
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
       {/* Quick Access Grid */}
       <section className="py-20 bg-white">
         <div className="section-container">
@@ -142,6 +224,50 @@ export default function ResidentResourcesPage() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Buy / sell — sister sites + listing consultation */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="section-container max-w-3xl text-center">
+          <h2 className="text-3xl font-bold text-skye-navy mb-4">Buying or selling in Skye Canyon?</h2>
+          <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+            This site is a homeowner and community guide. For MLS listings, agent representation, and
+            listing consultations, use the resources below.
+          </p>
+          <ul className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 text-left sm:text-center">
+            <li>
+              <a
+                href="https://www.skyecanyonhomesforsale.com"
+                className="inline-block px-6 py-3 rounded-lg border-2 border-skye-blue text-skye-blue font-semibold hover:bg-blue-50 transition-colors"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Skye Canyon homes for sale
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://skyecanyonrealtor.com"
+                className="inline-block px-6 py-3 rounded-lg border-2 border-skye-blue text-skye-blue font-semibold hover:bg-blue-50 transition-colors"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Skye Canyon REALTOR®
+              </a>
+            </li>
+            <li>
+              <a
+                href={LISTING_CONSULTATION_URL}
+                className="inline-block px-6 py-3 rounded-lg bg-skye-blue text-white font-semibold hover:bg-blue-800 transition-colors"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Schedule a listing consultation
+                <span className="sr-only"> (opens Calendly in a new tab)</span>
+              </a>
+            </li>
+          </ul>
         </div>
       </section>
 
