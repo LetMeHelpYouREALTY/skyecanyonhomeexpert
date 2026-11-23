@@ -11,6 +11,7 @@ import {
   Trees,
 } from 'lucide-react'
 import type { Metadata } from 'next'
+import { SkyeAtAGlanceIntro } from '@/lib/skye-at-a-glance-intro'
 
 const LISTING_CONSULTATION_URL =
   'https://calendly.com/drjanduffy/listing-consultation?utm_source=skyecanyonhomeexpert.com&utm_medium=website&utm_content=buy-sell-block'
@@ -94,12 +95,9 @@ export default function ResidentResourcesPage() {
       <section className="py-16 bg-white border-b border-gray-100">
         <div className="section-container max-w-4xl">
           <h2 className="text-3xl font-bold text-skye-navy mb-6">Skye Canyon at a glance</h2>
-          <p className="text-gray-700 mb-8 leading-relaxed">
-            Skye Canyon is a 1,000-acre master-planned community in northwest Las Vegas (ZIP 89166).
-            Community programming is centered at{' '}
-            <strong>10111 W Skye Canyon Park Dr, Las Vegas, NV 89166</strong> — the address for the
-            Skye Center and adjacent Skye Canyon Park.
-          </p>
+          <div className="mb-8">
+            <SkyeAtAGlanceIntro />
+          </div>
           <ul className="space-y-6 text-gray-700">
             <li className="flex gap-4">
               <Trees className="h-8 w-8 shrink-0 text-green-600" aria-hidden />
@@ -228,7 +226,7 @@ export default function ResidentResourcesPage() {
       </section>
 
       {/* Buy / sell — sister sites + listing consultation */}
-      <section className="py-16 bg-white border-t border-gray-100">
+      <section id="buy-sell" className="py-16 bg-white border-t border-gray-100">
         <div className="section-container max-w-3xl text-center">
           <h2 className="text-3xl font-bold text-skye-navy mb-4">Buying or selling in Skye Canyon?</h2>
           <p className="text-lg text-gray-700 mb-8 leading-relaxed">

@@ -3,6 +3,8 @@ import { Home, Calendar, Wrench, Users, MapPin, Sparkles, Award, Heart } from 'l
 import type { Metadata } from 'next'
 import HomeJsonLd from '@/components/HomeJsonLd'
 import { buyerConsultationCalendlyUrl } from '@/lib/calendly-url'
+import { homeFaqs } from '@/lib/home-faqs'
+import { SkyeAtAGlanceIntro } from '@/lib/skye-at-a-glance-intro'
 
 export const metadata: Metadata = {
   title: 'Living in Skye Canyon | Homeowner Hub',
@@ -145,6 +147,19 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Skye Canyon at a glance (teaser — full detail on resident-resources) */}
+      <section className="py-12 bg-white border-b border-gray-100">
+        <div className="section-container max-w-4xl">
+          <h2 className="text-3xl font-bold text-skye-navy mb-4">Skye Canyon at a glance</h2>
+          <SkyeAtAGlanceIntro />
+          <p className="mt-6">
+            <Link href="/resident-resources" className="text-skye-blue font-semibold hover:underline">
+              See parks, Skye Center, HOA contacts, and more on Resident Resources →
+            </Link>
+          </p>
+        </div>
+      </section>
+
       {/* Main Features */}
       <section className="py-16 bg-gray-50">
         <div className="section-container">
@@ -256,13 +271,30 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Home FAQ (matches FAQPage JSON-LD) */}
+      <section className="py-16 bg-white border-t border-gray-100" aria-labelledby="home-faq-heading">
+        <div className="section-container max-w-4xl">
+          <h2 id="home-faq-heading" className="text-4xl font-bold text-skye-navy mb-8 text-center">
+            Skye Canyon homeowner FAQ
+          </h2>
+          <dl className="space-y-8">
+            {homeFaqs.map((item) => (
+              <div key={item.question}>
+                <dt className="text-xl font-semibold text-gray-900 mb-2">{item.question}</dt>
+                <dd className="text-gray-700 leading-relaxed">{item.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-skye-navy to-skye-blue text-white">
         <div className="section-container text-center">
           <Users className="h-16 w-16 mx-auto mb-6 text-skye-gold" />
           <h2 className="text-4xl font-bold mb-4">Join the Skye Canyon Homeowner Network</h2>
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-            Connect with neighbors, stay informed about community events, and access exclusive homeowner resources.
+            Connect with neighbors, stay informed about community events, and access free homeowner resources.
           </p>
           <a
             href="tel:702-500-1955"

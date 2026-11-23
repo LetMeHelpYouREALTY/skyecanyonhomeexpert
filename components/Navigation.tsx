@@ -13,6 +13,7 @@ export default function Navigation() {
     { name: 'Homeowner Essentials', href: '/homeowner-essentials', icon: Home },
     { name: 'Community Living', href: '/community-living', icon: Calendar },
     { name: 'Resident Resources', href: '/resident-resources', icon: Wrench },
+    { name: 'Buying or Selling', href: '/resident-resources#buy-sell', icon: MapPin },
     { name: 'Events Calendar', href: '/events', icon: Calendar },
   ]
 
