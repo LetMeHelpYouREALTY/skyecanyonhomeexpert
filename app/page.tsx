@@ -277,14 +277,21 @@ export default function HomePage() {
           <h2 id="home-faq-heading" className="text-4xl font-bold text-skye-navy mb-8 text-center">
             Skye Canyon homeowner FAQ
           </h2>
-          <dl className="space-y-8">
+          <div className="space-y-4">
             {homeFaqs.map((item) => (
-              <div key={item.question}>
-                <dt className="text-xl font-semibold text-gray-900 mb-2">{item.question}</dt>
-                <dd className="text-gray-700 leading-relaxed">{item.answer}</dd>
-              </div>
+              <details
+                key={item.question}
+                className="group rounded-lg border border-gray-200 bg-gray-50 open:bg-white open:shadow-sm"
+              >
+                <summary className="cursor-pointer list-none px-5 py-4 text-xl font-semibold text-gray-900 marker:content-none [&::-webkit-details-marker]:hidden">
+                  {item.question}
+                </summary>
+                <p className="border-t border-gray-100 px-5 py-4 text-gray-700 leading-relaxed">
+                  {item.answer}
+                </p>
+              </details>
             ))}
-          </dl>
+          </div>
         </div>
       </section>
 
